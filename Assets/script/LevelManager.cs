@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -19,6 +20,10 @@ public class LevelManager : MonoBehaviour
     //bezpieczna odległość spawnu
     float spawnDistance = 30;
 
+    //ilosc pkt
+    int points = 0;
+
+    public GameObject pointsCounter;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +73,15 @@ public class LevelManager : MonoBehaviour
 
         //TODO: opracować sposób na przyspieszanie spawnu w nieskończoność wraz z długościa trwania etapu
 
-
+        UpdateUI();
+    }
+    public void AddPoints(int amount)
+    {
+        points += amount;
+    }
+    //funkcja która odpowiada za aktualizacje interfejsu
+    private void UpdateUI()
+    {
+        pointsCounter.GetComponent<TextMeshProUGUI>().text = "Punkty: " + points.ToString();
     }
 }
