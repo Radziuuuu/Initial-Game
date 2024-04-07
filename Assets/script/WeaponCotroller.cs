@@ -19,10 +19,11 @@ public class WeaponController : MonoBehaviour
 
     //czestotliwosc strzalu (/sek)
     public float rateOfFire = 1;
+
     //czas od ostatniego wystrzalu
     float timeSinceLastFire = 0;
 
-    //moc wystrzał€ (pręko początkowa)
+    //moc wystrzał€ (prędkość początkowa)
     public float projectileForce = 20;
 
     // Start is called before the first frame update
@@ -43,15 +44,14 @@ public class WeaponController : MonoBehaviour
         {
             //Debug.Log("Celuje do: " + target.gameObject.name);
             transform.LookAt(target.position + Vector3.up);
-
-            //wystrzel pocisk
+            
             //jeśli minęło więcej od ostatniego strzału niż wskazuje na to prędkość srzelania
             if (timeSinceLastFire > rateOfFire)
             {
                 //stworz pocisk
                 GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
 
-                //znajdz rrigidbody dla pocisku
+                //znajdz rigidbody dla pocisku
                 Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
                 //"popchnij" pocisk do przodu
                 //sila dziala w kierunku przodu działa (pojectilespawn.z) * siła wystrzału
