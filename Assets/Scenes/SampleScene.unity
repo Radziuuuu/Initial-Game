@@ -933,6 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84daaaa51fad5ca40b373abf298d3a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundClip: {fileID: 8300000, guid: d136e743297b1b94d9fec9f3a5222216, type: 3}
   range: 10
   projectilePrefab: {fileID: 7539645456092648373, guid: 1d2e88e8d0df5584390c77281ed54069, type: 3}
   projectileSpawnGO: {fileID: 914135}

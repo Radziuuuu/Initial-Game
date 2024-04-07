@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    //zasi璕 broni
+    //zasięg broni
     public float range = 10f;
 
     //transform gracza
@@ -35,7 +35,6 @@ public class WeaponController : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
 
         //znajdz w hierarchii obieku miejsce z ktorego staruje pocisk
-        /*projectileSpawn = transform.Find("ProjectileSpawn").transform;*/
         projectileSpawn = projectileSpawnGO.GetComponent<Transform>();
     }
 
@@ -51,8 +50,9 @@ public class WeaponController : MonoBehaviour
             //jeśli minęło więcej od ostatniego strzału niż wskazuje na to prędkość srzelania
             if (timeSinceLastFire > rateOfFire)
             {
-                //stworz pocisk
+                //stworz pocisk i dodaj dźwięk
                 GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
+                
 
                 //znajdz rigidbody dla pocisku
                 Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
