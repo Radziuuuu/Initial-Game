@@ -14,6 +14,8 @@ public class WeaponController : MonoBehaviour
     //prefab pocisku
     public GameObject projectilePrefab;
 
+    public GameObject projectileSpawnGO;
+
     //spawn pocisku
     Transform projectileSpawn;
 
@@ -33,7 +35,8 @@ public class WeaponController : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
 
         //znajdz w hierarchii obieku miejsce z ktorego staruje pocisk
-        projectileSpawn = transform.Find("ProjectileSpawn").transform;
+        /*projectileSpawn = transform.Find("ProjectileSpawn").transform;*/
+        projectileSpawn = projectileSpawnGO.GetComponent<Transform>();
     }
 
     // Update is called once per frame
