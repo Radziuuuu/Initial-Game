@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     //zasięg broni
-    private float range = 25f;
+    public float range = 25f;
 
     //transform gracza
     Transform player;
@@ -25,7 +25,7 @@ public class WeaponController : MonoBehaviour
     //czas od ostatniego wystrzalu
     float timeSinceLastFire = 0;
 
-    //moc wystrzał€ (prędkość początkowa)
+    //moc wystrzału (prędkość początkowa)
     private float projectileForce = 30;
 
     // Start is called before the first frame update

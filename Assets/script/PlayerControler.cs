@@ -41,9 +41,11 @@ public class PlayerControler : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.Log(collision.ToString());
-        if (collision.gameObject.CompareTag("Enenmy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Gracz Trafiony");
+            //Debug.Log("Gracz Trafiony");
+            GameObject.Find("LevelManager").GetComponent<LevelManager>().GameOver();
+            
         }
     }
 

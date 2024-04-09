@@ -8,10 +8,6 @@ public class LevelManager : MonoBehaviour
     //pozycja gracza
     Transform player;
 
-    int points;
-
-    public GameObject pointsCounter;
-
     //prefab przeciwnika
     public GameObject basherPrefab;
 
@@ -23,6 +19,22 @@ public class LevelManager : MonoBehaviour
 
     //bezpieczna odległość spawnu
     float spawnDistance = 30;
+
+    //ilość punktów
+    int points;
+
+    //licznik punktów na ekranie
+    public GameObject pointsCounter;
+
+    //licznik czasu na ekranie
+    public GameObject timeCounter;
+
+    //czas do końća poziomu
+    public float levelTime = 60f;
+
+    //ekran końca gry
+    public GameObject gameOverScreen;
+
 
     // Start is called before the first frame update
     void Start()
@@ -72,25 +84,48 @@ public class LevelManager : MonoBehaviour
         }
 
         //TODO: opracować sposób na przyspieszanie spawnu w nieskończoność wraz z długościa trwania etapu
-
-        if (false)
+        
+        if (levelTime < 0)
         {
-
+            GameOver();
         }
         else
         {
+            levelTime -= Time.deltaTime;
             UpdateUI();
         }
-
     }
 
     void UpdateUI()
     {
-        pointsCounter.GetComponent<TextMeshProUGUI>().text = $"Points: {points}";
+        pointsCounter.GetComponent<TextMeshProUGUI>().text = $"Points: " + points.ToString();
+        timeCounter.GetComponent<TextMeshProUGUI>().text = Mathf.Floor(levelTime).ToString();
     }
 
     public void addPoints(int amount)
     {
         points += amount;
+    }
+
+    //ta funkcja uruchamia sie jesli gracz zginie lub jesli czas sie skonczy
+
+    public void GameOver()
+    {
+        //wyłącz sterowanie gracza
+        player.GetComponent<PlayerControler>().enabled = false;
+        player.transform.Find("MainTurret").GetComponent<WeaponController>().enabled = false;
+
+        //wyłącz bashery
+        GameObject[] enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject basher in enemyList)
+        {
+            basher.GetComponent<BasherCotroller>().enabled = false;
+        }
+
+        //wyświetl poprawny wynik na ekranie końcowym
+        gameOverScreen.transform.Find("FinalScoreText").GetComponent<TextMeshProUGUI>().text = "Wynik końcowy: " + points.ToString();
+
+        //pokaż ekran końca gry
+        gameOverScreen.SetActive(true);
     }
 }
