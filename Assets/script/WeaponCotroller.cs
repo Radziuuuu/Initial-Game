@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     //zasięg broni
-    public float range = 25f;
+    private float range = 25f;
 
     //transform gracza
     Transform player;
@@ -26,7 +26,7 @@ public class WeaponController : MonoBehaviour
     float timeSinceLastFire = 0;
 
     //moc wystrzał€ (prędkość początkowa)
-    public float projectileForce = 20;
+    private float projectileForce = 30;
 
     // Start is called before the first frame update
     void Start()
@@ -53,9 +53,9 @@ public class WeaponController : MonoBehaviour
                 //stworz pocisk i dodaj dźwięk
                 GameObject projectile = Instantiate(projectilePrefab, projectileSpawn.position, Quaternion.identity);
                 
-
                 //znajdz rigidbody dla pocisku
                 Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
+
                 //"popchnij" pocisk do przodu
                 //sila dziala w kierunku przodu działa (pojectilespawn.z) * siła wystrzału
                 projectileRB.AddForce(projectileSpawn.transform.forward * projectileForce, ForceMode.VelocityChange);
