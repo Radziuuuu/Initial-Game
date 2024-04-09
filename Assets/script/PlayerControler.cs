@@ -38,4 +38,13 @@ public class PlayerControler : MonoBehaviour
         transform.position += movement;
         
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Debug.Log(collision.ToString());
+        if (collision.gameObject.CompareTag("Enenmy"))
+        {
+            Debug.Log("Gracz Trafiony");
+        }
+    }
+
 }

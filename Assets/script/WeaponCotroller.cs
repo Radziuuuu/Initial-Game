@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     //zasięg broni
-    public float range = 10f;
+    public float range = 25f;
 
     //transform gracza
     Transform player;

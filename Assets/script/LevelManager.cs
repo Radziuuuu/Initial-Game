@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
     //pozycja gracza
     Transform player;
+
+    int points;
+
+    public GameObject pointsCounter;
 
     //prefab przeciwnika
     public GameObject basherPrefab;
@@ -68,6 +73,24 @@ public class LevelManager : MonoBehaviour
 
         //TODO: opracować sposób na przyspieszanie spawnu w nieskończoność wraz z długościa trwania etapu
 
+        if (false)
+        {
 
+        }
+        else
+        {
+            UpdateUI();
+        }
+
+    }
+
+    void UpdateUI()
+    {
+        pointsCounter.GetComponent<TextMeshProUGUI>().text = $"Points: {points}";
+    }
+
+    public void addPoints(int amount)
+    {
+        points += amount;
     }
 }
