@@ -99,7 +99,7 @@ public class LevelManager : MonoBehaviour
     void UpdateUI()
     {
         pointsCounter.GetComponent<TextMeshProUGUI>().text = $"Points: " + points.ToString();
-        timeCounter.GetComponent<TextMeshProUGUI>().text = Mathf.Floor(levelTime).ToString();
+        timeCounter.GetComponent<TextMeshProUGUI>().text = Mathf.Floor(levelTime).ToString()=="-1"?"0": Mathf.Floor(levelTime).ToString();
     }
 
     public void addPoints(int amount)
@@ -124,6 +124,8 @@ public class LevelManager : MonoBehaviour
 
         //wyświetl poprawny wynik na ekranie końcowym
         gameOverScreen.transform.Find("FinalScoreText").GetComponent<TextMeshProUGUI>().text = "Wynik końcowy: " + points.ToString();
+        
+
 
         //pokaż ekran końca gry
         gameOverScreen.SetActive(true);
