@@ -100,6 +100,7 @@ public class LevelManager : MonoBehaviour
     {
         pointsCounter.GetComponent<TextMeshProUGUI>().text = $"Points: " + points.ToString();
         timeCounter.GetComponent<TextMeshProUGUI>().text = Mathf.Floor(levelTime).ToString()=="-1"?"0": Mathf.Floor(levelTime).ToString();
+        //time -1 to 0
     }
 
     public void addPoints(int amount)
