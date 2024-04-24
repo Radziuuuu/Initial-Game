@@ -209,6 +209,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basherPrefab: {fileID: 5734594481244453898, guid: f0b46062d4dd7b64d8b94aecb5fbd508, type: 3}
   spawnInterval: 1
+  pointsCounter: {fileID: 0}
+  timeCounter: {fileID: 0}
+  levelTime: 60
+  gameOverScreen: {fileID: 0}
 --- !u!4 &468369107
 Transform:
   m_ObjectHideFlags: 0
@@ -476,8 +480,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   projectilePrefab: {fileID: 0}
+  projectileSpawnGO: {fileID: 0}
   rateOfFire: 1
-  projectileForce: 20
 --- !u!1 &920771704
 GameObject:
   m_ObjectHideFlags: 0
