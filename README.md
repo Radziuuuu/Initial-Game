@@ -1,7 +1,6 @@
 # Initial-Game
 --------------------Poniższy plik jest zrobiony w celach humorystycznych - potrzebne na zajęcia itp.--------------------
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20MacOS%20%7C%20Linux-brightgreen)
+
 
 Initial-Game to moja pierwsza gra, która przeniesie Cię w świat typowego AutoShootera. Przygotuj się na flashbacki z dzieciństwa.
 
